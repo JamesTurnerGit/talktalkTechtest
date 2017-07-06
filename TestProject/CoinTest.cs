@@ -29,6 +29,13 @@ namespace TestProject
             var coin = new VendingApp.Coin(coinValue);
             Assert.AreEqual(coin.ToString(), "2 pound coin");
         }
+
+        [TestMethod]
+        public void CannotMakeBogusCoins()
+        {
+            Assert.ThrowsException<ArgumentException>(() => new VendingApp.Coin(3));
+            Assert.ThrowsException<ArgumentException>(() => new VendingApp.Coin(111));
+        }
     }
 }
 
