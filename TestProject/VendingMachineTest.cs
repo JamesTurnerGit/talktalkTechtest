@@ -6,7 +6,10 @@ namespace TestProject
     [TestClass]
     public class VendingMachineTest
     {
-        public class MockItem : VendingApp.IItem{}
+        public class MockItem : VendingApp.IItem{
+            public int Cost { get; set; }
+            public string Name { get; set; }
+        }
 
         [TestMethod]
         public void EmptyStockOnSpawn()
@@ -19,7 +22,7 @@ namespace TestProject
         public void CanAddStock()
         {
             var vendingMachine = new VendingApp.VendingMachine();
-            var goldBars = new MockItem();
+            var goldBars = new MockItem { Name = "goldBar", Cost = 5000 };
 
             vendingMachine.AddStock(goldBars);
 

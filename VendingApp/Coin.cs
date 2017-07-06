@@ -6,16 +6,17 @@ namespace VendingApp
 {
     public interface ICoin
     {
+        int Value { get; }
     }
 
     public class Coin: ICoin
     {
         public int Value { get; private set; }
-        public static List<int> validCoinValues = new List<int> { 200, 100, 50, 20, 5, 2, 1 };
+        public static List<int> ValidCoinValues = new List<int> { 200, 100, 50, 20, 5, 2, 1 };
 
         public Coin(int value)
         {
-            if (!validCoinValues.Contains(value)) {
+            if (!ValidCoinValues.Contains(value)) {
                 throw new ArgumentException("invalid coin denomination: " + value + " cannot be created");
             }
             Value = value;
@@ -24,7 +25,7 @@ namespace VendingApp
         public override string ToString()
         {
             string name;
-            var worth = Value;
+            int worth = Value;
 
             if(worth >= 100)
             {

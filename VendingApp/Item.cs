@@ -2,6 +2,9 @@
 {
     public interface IItem
     {
+        int Cost { get; }
+        string Name { get; }
+
     }
 
     public class Item : IItem
