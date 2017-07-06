@@ -6,8 +6,35 @@ using System.Threading.Tasks;
 
 namespace VendingApp
 {
-    class CoinCalculator
+    interface ICoinCalculator
     {
-        static int[,,,,,,] CoinDenominations = new int[200,100,50,20,5,2,1];
+        List<ICoin> ToCoins(int totalValue);
+    }
+
+    class CoinCalculator : ICoinCalculator
+    {
+        //private ICoin _CoinClass;
+        
+        //public CoinCalculator (Type coinClass = null)
+        //{
+        //    Type xx = (Type)Coin;
+            // _CoinClass = coinClass ?? tmp.GetType();
+            //Type coinClass = tmp.GetType();
+        //}
+
+        public List<ICoin> ToCoins(int totalValue)
+        {
+            var result = new List<ICoin>();
+
+            foreach (int coinValue in Coin.ValidCoinValues)
+            {
+                while(coinValue >= totalValue)
+                {
+                    totalValue -= coinValue;
+                    result.Add(new Coin(coinValue));
+                }
+            }
+            return result;
+        }
     }
 }
