@@ -6,6 +6,7 @@ namespace VendingApp
     [TestClass]
     public class ItemTest
     {
+
         [TestMethod]
         public void ItemHasName()
         {
@@ -13,6 +14,7 @@ namespace VendingApp
             var item = new Item(30, itemName); 
             Assert.AreEqual(itemName, item.Name);
         }
+
         [TestMethod]
         public void ItemHasCost()
         {
