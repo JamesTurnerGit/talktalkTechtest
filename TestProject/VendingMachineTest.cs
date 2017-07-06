@@ -11,6 +11,11 @@ namespace TestProject
             public string Name { get; set; }
         }
 
+        public class MockCoin : VendingApp.ICoin
+        {
+            public int Value { get; set; }
+        }
+
         [TestMethod]
         public void EmptyStockOnSpawn()
         {
