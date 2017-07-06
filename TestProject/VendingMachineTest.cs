@@ -16,7 +16,7 @@ namespace VendingApp
         public void CanAddStock()
         {
             var vendingMachine = new VendingMachine();
-            var goldBars = new Item();
+            var goldBars = new Item(500,"Gold Bars");
             vendingMachine.AddStock(goldBars);
             Assert.IsTrue(vendingMachine.Stock.Contains(goldBars));
             Assert.AreEqual(vendingMachine.stock.Count, 1);
