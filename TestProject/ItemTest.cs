@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace VendingApp
+namespace TestProject
 {
     [TestClass]
     public class ItemTest
@@ -11,7 +11,7 @@ namespace VendingApp
         public void ItemHasName()
         {
             var itemName = "crisps";
-            var item = new Item(30, itemName); 
+            var item = new VendingApp.Item(30, itemName); 
             Assert.AreEqual(itemName, item.Name);
         }
 
@@ -19,7 +19,7 @@ namespace VendingApp
         public void ItemHasCost()
         {
             var itemCost = 50;
-            var item = new Item(itemCost, "crisps");
+            var item = new VendingApp.Item(itemCost, "crisps");
             Assert.AreEqual(itemCost, item.Cost);
         }
     }

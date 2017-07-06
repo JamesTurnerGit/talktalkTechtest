@@ -11,8 +11,11 @@ namespace VendingApp
         static void Main(string[] args)
         {
             VendingMachine vendingMachine = new VendingMachine();
-            //Item crisps = new Item { Name = "Crisps", Cost = 50 };
-            //Item water = new Item { Name = "Bottled Water", Cost = 40 };
+            Item crisps = new Item(40, "Crisps");
+            Item water = new Item(50, "Water");
+
+            vendingMachine.AddStock(crisps);
+            vendingMachine.AddStock(water);
         }
     }
 }
