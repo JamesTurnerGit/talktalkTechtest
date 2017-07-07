@@ -1,14 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VendingApp
+﻿namespace VendingApp
 {
-    public class Item
+    public interface IItem
     {
-        public int Cost { get; set; }
-        public string Name { get; set; }
+        int Cost { get; }
+        string Name { get; }
+
+    }
+
+    public class Item : IItem
+    {
+        public int Cost { get; private set; }
+        public string Name { get; private set; }
+
+        public Item(int cost, string name)
+        {
+            Cost = cost;
+            Name = name;
+        }
     }
 }

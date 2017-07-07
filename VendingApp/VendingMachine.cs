@@ -8,18 +8,17 @@ namespace VendingApp
 {
     public class VendingMachine
     {
-        public List<Item> stock = new List<Item>();
-        public List<Item> Stock
+        public List<IItem> stock = new List<IItem>();
+        public List<IItem> Stock
         {
             get { return stock; }
-            set { stock = value; }
+            private set { stock = value; }
         }
 
-        public void AddStock(Item newItem)
+        public void AddStock(IItem newItem)
         {
             Stock.Add(newItem);
         }
-
 
     }
 }
