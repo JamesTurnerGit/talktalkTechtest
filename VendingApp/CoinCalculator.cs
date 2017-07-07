@@ -11,8 +11,8 @@ namespace VendingApp
         List<ICoin> ToCoins(int totalValue);
     }
 
-    class CoinCalculator : ICoinCalculator
-    {
+    public  class CoinCalculator : ICoinCalculator
+    { 
         //private ICoin _CoinClass;
         
         //public CoinCalculator (Type coinClass = null)
@@ -28,7 +28,7 @@ namespace VendingApp
 
             foreach (int coinValue in Coin.ValidCoinValues)
             {
-                while(coinValue >= totalValue)
+                while(coinValue <= totalValue)
                 {
                     totalValue -= coinValue;
                     result.Add(new Coin(coinValue));
