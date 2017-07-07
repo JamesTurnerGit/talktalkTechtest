@@ -13,7 +13,9 @@ namespace VendingApp
     {
         public int Value { get; private set; }
         public static List<int> ValidCoinValues = new List<int> { 200, 100, 50, 20, 10, 5, 2, 1 };
-
+        public const string bigUnit = "pound";
+        public const string smallUnit = "pence";
+ 
         public Coin(int value)
         {
             if (!ValidCoinValues.Contains(value)) {
@@ -30,11 +32,11 @@ namespace VendingApp
             if(worth >= 100)
             {
                 worth = worth / 100;
-                name = "pound";
+                name = bigUnit;
             }
             else
             {
-                name = "pence";
+                name = smallUnit;
             }
 
             return worth + " " + name + " coin";
