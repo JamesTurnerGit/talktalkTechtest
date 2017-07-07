@@ -12,7 +12,7 @@ namespace VendingApp
     public class Coin: ICoin
     {
         public int Value { get; private set; }
-        public static List<int> ValidCoinValues = new List<int> { 200, 100, 50, 20, 5, 2, 1 };
+        public static List<int> ValidCoinValues = new List<int> { 200, 100, 50, 20, 10, 5, 2, 1 };
 
         public Coin(int value)
         {
