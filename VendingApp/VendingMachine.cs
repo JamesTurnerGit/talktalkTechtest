@@ -9,6 +9,7 @@ namespace VendingApp
     public class VendingMachine
     {
         public List<IItem> stock = new List<IItem>();
+        public CoinCalculator coinCalculator = new CoinCalculator();
 
         public int ActiveMoney { get; private set; }
         public List<IItem> Stock
@@ -25,6 +26,21 @@ namespace VendingApp
         public void InsertCoin(ICoin coin)
         {
             ActiveMoney += coin.Value;
+        }
+
+        public bool TryPurchase(IItem item)
+        {
+            if (item.Cost > ActiveMoney) { return false; }
+            if (!stock.Contains(item)) { return false; }
+            ActiveMoney -= item.Cost;
+            return true;
+        }
+
+        public List<ICoin> CoinReturn()
+        {
+            var moneyToReturn = ActiveMoney;
+            ActiveMoney = 0;
+            return coinCalculator.ToCoins(moneyToReturn);
         }
     }
 }

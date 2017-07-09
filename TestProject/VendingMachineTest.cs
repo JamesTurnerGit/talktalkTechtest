@@ -70,5 +70,84 @@ namespace TestProject
             Assert.AreEqual(200, total);
         }
 
+        [TestMethod]
+        public void CanPurchaseItems()
+        {
+            var vendingMachine = new VendingApp.VendingMachine();
+            var mockPoundCoin = new MockCoin { Value = 100 };
+            var twinkies = new MockItem { Name = "twinkies", Cost = 100 };
+
+            vendingMachine.AddStock(twinkies);
+            vendingMachine.InsertCoin(mockPoundCoin);
+
+            Assert.IsTrue(vendingMachine.TryPurchase(twinkies));
+        }
+
+        [TestMethod]
+        public void CantPurchaseIfGoodsTooExpensive()
+        {
+            var vendingMachine = new VendingApp.VendingMachine();
+            var mockPoundCoin = new MockCoin { Value = 100 };
+            var kingSizeTwix = new MockItem { Name = "king Size Twix", Cost = 101 };
+
+            vendingMachine.AddStock(kingSizeTwix);
+            vendingMachine.InsertCoin(mockPoundCoin);
+
+            Assert.IsFalse(vendingMachine.TryPurchase(kingSizeTwix));
+        }
+
+        [TestMethod]
+        public void CantPurchaseIfGoodsNotInStock()
+        {
+            var vendingMachine = new VendingApp.VendingMachine();
+            var mockPoundCoin = new MockCoin { Value = 100 };
+            var kingSizeTwix = new MockItem { Name = "king Size Twix", Cost = 101 };
+
+            vendingMachine.InsertCoin(mockPoundCoin);
+
+            Assert.IsFalse(vendingMachine.TryPurchase(kingSizeTwix));
+        }
+
+        [TestMethod]
+        public void SubtractsCostFromTotal()
+        {
+            var vendingMachine = new VendingApp.VendingMachine();
+            var mockPoundCoin = new MockCoin { Value = 100 };
+
+            var twinkies = new MockItem { Name = "twinkies", Cost = 100 };
+
+            vendingMachine.AddStock(twinkies);
+            vendingMachine.InsertCoin(mockPoundCoin);
+
+            vendingMachine.TryPurchase(twinkies);
+
+            Assert.AreEqual(vendingMachine.ActiveMoney, 0);
+
+        }
+
+        [TestMethod]
+        public void CoinReturnWorks()
+        {
+            var vendingMachine = new VendingApp.VendingMachine();
+            var mockPoundCoin = new MockCoin { Value = 100 };
+
+            vendingMachine.InsertCoin(mockPoundCoin);
+            var change = vendingMachine.CoinReturn();
+
+            Assert.AreEqual(100, change[0].Value);
+        }
+
+        [TestMethod]
+        public void CoinReturnSetsValueToZero()
+        {
+
+            var vendingMachine = new VendingApp.VendingMachine();
+            var mockPoundCoin = new MockCoin { Value = 100 };
+
+            var change = vendingMachine.CoinReturn();
+
+            Assert.AreEqual(0, vendingMachine.ActiveMoney);
+
+        }
     }
 }
