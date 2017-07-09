@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestProject
 {
@@ -7,7 +6,7 @@ namespace TestProject
     public class VendingMachineTest
     {
         public class MockItem : VendingApp.IItem{
-            public int Cost { get; set; }
+            public int Cost    { get; set; }
             public string Name { get; set; }
         }
 
@@ -34,5 +33,42 @@ namespace TestProject
             Assert.IsTrue(vendingMachine.Stock.Contains(goldBars));
             Assert.AreEqual(vendingMachine.stock.Count, 1);
         }
+
+        [TestMethod]
+        public void HasZeroInAtStart()
+        {
+            var vendingMachine = new VendingApp.VendingMachine();
+            var total = vendingMachine.ActiveMoney;
+
+            Assert.AreEqual(0, total);
+        }
+
+        [TestMethod]
+        public void TotalGetsSingleCoinAdded()
+        {
+            var vendingMachine = new VendingApp.VendingMachine();
+            var mockPoundCoin = new MockCoin { Value = 100 };
+
+            vendingMachine.InsertCoin(mockPoundCoin);
+            var total = vendingMachine.ActiveMoney;
+
+            Assert.AreEqual(100, total);
+        }
+
+
+        [TestMethod]
+        public void TotalGetsMultibleCoinsAdded()
+        {
+            var vendingMachine = new VendingApp.VendingMachine();
+            var mockPoundCoin = new MockCoin { Value = 100 };
+
+            vendingMachine.InsertCoin(mockPoundCoin);
+            vendingMachine.InsertCoin(mockPoundCoin);
+
+            var total = vendingMachine.ActiveMoney;
+
+            Assert.AreEqual(200, total);
+        }
+
     }
 }

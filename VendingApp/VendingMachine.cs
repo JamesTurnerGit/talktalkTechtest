@@ -9,6 +9,8 @@ namespace VendingApp
     public class VendingMachine
     {
         public List<IItem> stock = new List<IItem>();
+
+        public int ActiveMoney { get; private set; }
         public List<IItem> Stock
         {
             get { return stock; }
@@ -20,5 +22,9 @@ namespace VendingApp
             Stock.Add(newItem);
         }
 
+        public void InsertCoin(ICoin coin)
+        {
+            ActiveMoney += coin.Value;
+        }
     }
 }
