@@ -17,6 +17,7 @@ to run the tests:
 
 ## Improvements
 Better test isolation - was having trouble figuring out how to inject coins into the vending machine without hardcoding the classname into the class. Fixing this would be my top priority as it's a lesson that would be usefull elsewhere.
+
 I think this goes past the scope of the test, but this machine has infinite versions of whatever you put into it, and it generates cash! would change this.
 
 ## Class Diagram
