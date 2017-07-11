@@ -20,7 +20,7 @@ Better test isolation - was having trouble figuring out how to inject coins into
 I think this goes past the scope of the test, but this machine has infinite versions of whatever you put into it, and it generates cash! would change this.
 
 ## Class Diagram
-![class diagram](classDiagram.PNG)
+![class diagram](class.PNG)
 
 
 ## Sidenote
