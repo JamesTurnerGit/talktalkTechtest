@@ -4,7 +4,7 @@
 A simple model representing a vending machine and a quick interface written around it for simplified user interaction.
 The interface itself is very limiting in how it was written as it's designed from what a vending machine user would see, the model itself is much more flexable.
 
-!(interface.PNG)
+![interface image](interface.PNG)
 
 ## Instructions
 to try the app simply download and run the following file and follow the onscreen instructions
@@ -20,11 +20,11 @@ Better test isolation - was having trouble figuring out how to inject coins into
 I think this goes past the scope of the test, but this machine has infinite versions of whatever you put into it, and it generates cash! would change this.
 
 ## Class Diagram
-!(classDiagram.PNG)
+![class diagram](classDiagram.PNG)
 
 
 ## Sidenote
 I've seen a very similar problem before in a game! 
 shenzhen IO where you design circuits and code chips using assembly, just for fun heres my solution in the game [screenie here]
 
-!(shenzhen.PNG)
+![ShenZhen IO screenshot](shenzhen.PNG)
