@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Has a stocklist and ActiveMoney, responds as a vendor should
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Very rough and ready way to interact with the model for testing and demonstration.
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

@@ -1,4 +1,6 @@
-﻿using System;
+﻿//understands how to convert an INT into a list of coins
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
