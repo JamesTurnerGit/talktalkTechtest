@@ -1,16 +1,30 @@
 # Talk Talk tech test
 
 ## Description
+A simple model representing a vending machine and a quick interface written around it for simplified user interaction.
+The interface itself is very limiting in how it was written as it's designed from what a vending machine user would see, the model itself is much more flexable.
+
+!(interface.PNG)
 
 ## Instructions
+to try the app simply download and run the following file and follow the onscreen instructions
+\talktalkTechtest\VendingApp\bin\Debug\vendingApp.exe
+
+to run the tests:
+1. download the whole repo 
+2. open "VendingApp.sln" in Visual studio
+3. press "ctrl + r" followed by "a"
 
 ## Improvements
-goes way past the scope of the test, but this stock machine has infinite versions of whatever you put into it, including cash! making a true stock counter for change and stock would be the first thing added in a future version
+Better test isolation - was having trouble figuring out how to inject coins into the vending machine without hardcoding the classname into the class. Fixing this would be my top priority as it's a lesson that would be usefull elsewhere.
+I think this goes past the scope of the test, but this machine has infinite versions of whatever you put into it, and it generates cash! would change this.
+
+## Class Diagram
+!(classDiagram.PNG)
 
 
-## things likely to change before submission
-Better stubbing
-non-public setters on items
+## Sidenote
+I've seen a very similar problem before in a game! 
+shenzhen IO where you design circuits and code chips using assembly, just for fun heres my solution in the game [screenie here]
 
-## sidenote
-I've seen this before in a game! shenzhen IO where you design circuits and code chips using assembly, just for fun heres my solution in the game [screenie here]
+!(shenzhen.PNG)

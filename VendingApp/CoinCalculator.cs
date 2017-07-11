@@ -13,15 +13,6 @@ namespace VendingApp
 
     public  class CoinCalculator : ICoinCalculator
     { 
-        //private ICoin _CoinClass;
-        
-        //public CoinCalculator (Type coinClass = null)
-        //{
-        //    Type xx = (Type)Coin;
-            // _CoinClass = coinClass ?? tmp.GetType();
-            //Type coinClass = tmp.GetType();
-        //}
-
         public List<ICoin> ToCoins(int totalValue)
         {
             var result = new List<ICoin>();
