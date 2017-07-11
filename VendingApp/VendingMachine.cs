@@ -9,10 +9,10 @@ namespace VendingApp
 {
     public class VendingMachine
     {
-        public List<IItem> stock = new List<IItem>();
         public CoinCalculator coinCalculator = new CoinCalculator();
-
         public int ActiveMoney { get; private set; }
+
+        public List<IItem> stock = new List<IItem>();
         public List<IItem> Stock
         {
             get { return stock; }
