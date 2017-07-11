@@ -1,8 +1,9 @@
 # Talk Talk tech test
 
 ## Description
-A simple model representing a vending machine and a quick interface written around it for simplified user interaction.
-The interface itself is very limiting in how it was written as it's designed from what a vending machine user would see, the model itself is much more flexable.
+A simple model representing a vending machine. The vending machine only has two items in stock and only accepts 50p coins, although it can return any number in change.
+
+includes a quick interface written around it for simplified user interaction and demonstration. The interface itself is very limiting by design, as it's what a vending machine end-user would see, the model itself is much more flexable behind the scenes.
 
 ![interface image](interface.PNG)
 
