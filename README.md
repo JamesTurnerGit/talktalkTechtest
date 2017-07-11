@@ -30,6 +30,8 @@ I think this goes past the scope of the test, but this machine has infinite vers
 
 ## Sidenote
 I've seen a very similar problem before in a game! 
-shenzhen IO where you design circuits and code chips using an assembly-like language, just for fun heres my solution in the game 
+shenzhen IO where you design circuits and code chips using an assembly-like language.
+
+Just for fun heres my solution in the game 
 
 ![ShenZhen IO screenshot](shenzhen.PNG)
