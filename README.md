@@ -1,4 +1,4 @@
-# Talk Talk tech test
+# vending machine
 
 ## Description
 A simple model representing a vending machine. The vending machine only has two items in stock and only accepts 50p coins, although it can return any number in change.
