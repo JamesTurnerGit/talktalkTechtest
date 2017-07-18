@@ -141,14 +141,12 @@ namespace VendingAppTests
         [TestMethod]
         public void CoinReturnSetsValueToZero()
         {
-
             var vendingMachine = new VendingMachine();
 
-            //TODO why make this and not use it?
             var mockPoundCoin = new MockCoin { Value = 100 };
+            vendingMachine.InsertCoin(mockPoundCoin);
 
-            //TODO do we care about this value?
-            var change = vendingMachine.CoinReturn();
+            vendingMachine.CoinReturn();
 
             Assert.AreEqual(0, vendingMachine.ActiveMoney);
 
