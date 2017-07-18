@@ -13,3 +13,4 @@ Test project should be named according to what it tests. In larger solutions thi
 Project Namespace & Assembly Name can be changed in the properties of a project (In Solution Explorer: Right-click -> Properties -> Application)
 
 ## Style points / Some options
+ToString is present on object, and does not need to be in the ICoin interface. You might be interested to look up how you can specify that the base object.ToString() method should be used. https://www.dotnetperls.com/tostring has some more information on ToString, I recommend you read up to the beginning of the discussion of numbers - be warned that CultureInfo and displaying numbers is a big subject, you may wish to steer clear of it for now.

@@ -6,7 +6,6 @@ namespace VendingApp
     public interface ICoin
     {
         int Value { get; }
-        string ToString();
     }
 
     /// <summary>
