@@ -1,5 +1,4 @@
-﻿// Has a stocklist and ActiveMoney, responds as a vendor should
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace VendingApp
 {
+    /// <summary>
+    /// Has a stocklist and ActiveMoney, responds as a vendor should
+    /// </summary>
     public class VendingMachine
     {
         public CoinCalculator coinCalculator = new CoinCalculator();

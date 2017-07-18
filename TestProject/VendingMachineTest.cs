@@ -1,16 +1,17 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using VendingApp;
 
-namespace TestProject
+namespace VendingAppTests
 {
     [TestClass]
     public class VendingMachineTest
     {
-        public class MockItem : VendingApp.IItem{
+        public class MockItem : IItem{
             public int Cost    { get; set; }
             public string Name { get; set; }
         }
 
-        public class MockCoin : VendingApp.ICoin
+        public class MockCoin : ICoin
         {
             public int Value { get; set; }
         }
@@ -18,14 +19,14 @@ namespace TestProject
         [TestMethod]
         public void EmptyStockOnSpawn()
         {
-            var vendingMachine = new VendingApp.VendingMachine();
+            var vendingMachine = new VendingMachine();
             Assert.AreEqual(vendingMachine.Stock.Count, 0);
         }
 
         [TestMethod]
         public void CanAddStock()
         {
-            var vendingMachine = new VendingApp.VendingMachine();
+            var vendingMachine = new VendingMachine();
             var goldBars = new MockItem { Name = "goldBar", Cost = 5000 };
 
             vendingMachine.AddStock(goldBars);
@@ -37,7 +38,7 @@ namespace TestProject
         [TestMethod]
         public void HasZeroInAtStart()
         {
-            var vendingMachine = new VendingApp.VendingMachine();
+            var vendingMachine = new VendingMachine();
             var total = vendingMachine.ActiveMoney;
 
             Assert.AreEqual(0, total);
@@ -46,7 +47,7 @@ namespace TestProject
         [TestMethod]
         public void TotalGetsSingleCoinAdded()
         {
-            var vendingMachine = new VendingApp.VendingMachine();
+            var vendingMachine = new VendingMachine();
             var mockPoundCoin = new MockCoin { Value = 100 };
 
             vendingMachine.InsertCoin(mockPoundCoin);
@@ -59,7 +60,7 @@ namespace TestProject
         [TestMethod]
         public void TotalGetsMultibleCoinsAdded()
         {
-            var vendingMachine = new VendingApp.VendingMachine();
+            var vendingMachine = new VendingMachine();
             var mockPoundCoin = new MockCoin { Value = 100 };
 
             vendingMachine.InsertCoin(mockPoundCoin);
@@ -73,7 +74,7 @@ namespace TestProject
         [TestMethod]
         public void CanPurchaseItems()
         {
-            var vendingMachine = new VendingApp.VendingMachine();
+            var vendingMachine = new VendingMachine();
             var mockPoundCoin = new MockCoin { Value = 100 };
             var twinkies = new MockItem { Name = "twinkies", Cost = 100 };
 
@@ -86,7 +87,7 @@ namespace TestProject
         [TestMethod]
         public void CantPurchaseIfGoodsTooExpensive()
         {
-            var vendingMachine = new VendingApp.VendingMachine();
+            var vendingMachine = new VendingMachine();
             var mockPoundCoin = new MockCoin { Value = 100 };
             var kingSizeTwix = new MockItem { Name = "king Size Twix", Cost = 101 };
 
@@ -99,7 +100,7 @@ namespace TestProject
         [TestMethod]
         public void CantPurchaseIfGoodsNotInStock()
         {
-            var vendingMachine = new VendingApp.VendingMachine();
+            var vendingMachine = new VendingMachine();
             var mockPoundCoin = new MockCoin { Value = 100 };
             var kingSizeTwix = new MockItem { Name = "king Size Twix", Cost = 101 };
 
@@ -111,7 +112,7 @@ namespace TestProject
         [TestMethod]
         public void SubtractsCostFromTotal()
         {
-            var vendingMachine = new VendingApp.VendingMachine();
+            var vendingMachine = new VendingMachine();
             var mockPoundCoin = new MockCoin { Value = 100 };
 
             var twinkies = new MockItem { Name = "twinkies", Cost = 100 };
@@ -128,7 +129,7 @@ namespace TestProject
         [TestMethod]
         public void CoinReturnWorks()
         {
-            var vendingMachine = new VendingApp.VendingMachine();
+            var vendingMachine = new VendingMachine();
             var mockPoundCoin = new MockCoin { Value = 100 };
 
             vendingMachine.InsertCoin(mockPoundCoin);
@@ -141,9 +142,12 @@ namespace TestProject
         public void CoinReturnSetsValueToZero()
         {
 
-            var vendingMachine = new VendingApp.VendingMachine();
+            var vendingMachine = new VendingMachine();
+
+            //TODO why make this and not use it?
             var mockPoundCoin = new MockCoin { Value = 100 };
 
+            //TODO do we care about this value?
             var change = vendingMachine.CoinReturn();
 
             Assert.AreEqual(0, vendingMachine.ActiveMoney);

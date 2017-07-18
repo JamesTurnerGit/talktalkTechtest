@@ -1,7 +1,7 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using VendingApp;
 
-namespace TestProject
+namespace VendingAppTests
 {
     [TestClass]
     public class CoinCalculatorTest
@@ -9,7 +9,7 @@ namespace TestProject
         [TestMethod]
         public void CanConvertSimpleCoins()
         {
-            var cc = new VendingApp.CoinCalculator();
+            var cc = new CoinCalculator();
             var coinValue = 5;
             var result = cc.ToCoins(coinValue);
 
@@ -20,7 +20,7 @@ namespace TestProject
         [TestMethod]
         public void CanConvertIntoMultibleCoins()
         {
-            var cc = new VendingApp.CoinCalculator();
+            var cc = new CoinCalculator();
             var coinValue = 51;
             var result = cc.ToCoins(coinValue);
 
@@ -31,7 +31,7 @@ namespace TestProject
         [TestMethod]
         public void ManyCoinConversion()
         {
-            var cc = new VendingApp.CoinCalculator();
+            var cc = new CoinCalculator();
             var coinValue = 388;
             var result = cc.ToCoins(coinValue);
 
@@ -48,7 +48,7 @@ namespace TestProject
         [TestMethod]
         public void MultibleOfSameCoin()
         {
-            var cc = new VendingApp.CoinCalculator();
+            var cc = new CoinCalculator();
             var coinValue = 4;
             var result = cc.ToCoins(coinValue);
 

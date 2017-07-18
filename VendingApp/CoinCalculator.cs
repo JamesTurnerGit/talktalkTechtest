@@ -1,6 +1,4 @@
-﻿//understands how to convert an INT into a list of coins
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +11,10 @@ namespace VendingApp
         List<ICoin> ToCoins(int totalValue);
     }
 
-    public  class CoinCalculator : ICoinCalculator
+    /// <summary>
+    /// understands how to convert an INT into a list of coins
+    /// </summary>
+    public class CoinCalculator : ICoinCalculator
     { 
         public List<ICoin> ToCoins(int totalValue)
         {

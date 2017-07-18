@@ -1,5 +1,4 @@
-﻿//items have a name and a cost
-namespace VendingApp
+﻿namespace VendingApp
 {
     public interface IItem
     {

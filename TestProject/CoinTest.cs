@@ -1,7 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using VendingApp;
 
-namespace TestProject
+namespace VendingAppTests
 {
     [TestClass]
     public class CoinTest
@@ -10,7 +11,7 @@ namespace TestProject
         public void CoinHasValue()
         {
             var coinValue = 50;
-            var coin = new VendingApp.Coin(coinValue);
+            var coin = new Coin(coinValue);
             Assert.AreEqual(coinValue, coin.Value);
         }
 
@@ -18,7 +19,7 @@ namespace TestProject
         public void CoinToStringPence()
         {
             var coinValue = 50;
-            var coin = new VendingApp.Coin(coinValue);
+            var coin = new Coin(coinValue);
             Assert.AreEqual(coin.ToString(), "50 pence coin");
         }
 
@@ -26,15 +27,15 @@ namespace TestProject
         public void CoinToStringPounds()
         {
             var coinValue = 200;
-            var coin = new VendingApp.Coin(coinValue);
+            var coin = new Coin(coinValue);
             Assert.AreEqual(coin.ToString(), "2 pound coin");
         }
 
         [TestMethod]
         public void CannotMakeBogusCoins()
         {
-            Assert.ThrowsException<ArgumentException>(() => new VendingApp.Coin(3));
-            Assert.ThrowsException<ArgumentException>(() => new VendingApp.Coin(111));
+            Assert.ThrowsException<ArgumentException>(() => new Coin(3));
+            Assert.ThrowsException<ArgumentException>(() => new Coin(111));
         }
     }
 }

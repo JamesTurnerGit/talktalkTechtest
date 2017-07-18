@@ -1,8 +1,5 @@
-﻿// coin implemntation designed to be configurable
-
-using System;
+﻿using System;
 using System.Collections.Generic;
-
 
 namespace VendingApp
 {
@@ -12,6 +9,9 @@ namespace VendingApp
         string ToString();
     }
 
+    /// <summary>
+    /// coin implemntation designed to be configurable
+    /// </summary>
     public class Coin: ICoin
     {
         public int Value { get; private set; }
