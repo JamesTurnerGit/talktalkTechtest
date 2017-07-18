@@ -32,6 +32,14 @@ ToString is present on object, and does not need to be in the ICoin interface. Y
 
 It is relatively common not to have interfaces for objects where the intent is for them to contain information, rather than behaviour. It is my opinion that Coin and Item have this intent.
 
+It's uncommon to include compiled code in a git repository. Using a .gitignore such as <https://github.com/github/gitignore/blob/master/VisualStudio.gitignore> will prevent this by default. I can see why you chose to include compiled code, but I think you should steer clear of this, instead relying on having a standard, well-formatted project to guide your reader. Including instructions as an aide-memoire is sensible, but these should be at the bottom of a readme file where they are standard (e.g. "`npm start` to run the website").
+
+Be Happier! You only talked about one thing you're happy with, you need only look above to see that your solution has more merit than you exposed immediately for your user. Advertisers tell you how you feel about their products for a reason ;)
+
+I suspect that the class diagram was requested to facilitate gentle conversation about your solution at the start of an in-person interview. As such, it is fine, although you might expect an interviewer to notice that it makes no mention of interfaces.
+
+Writing Style - be aware that you are going to put this in front of some highly detail-oriented people who have to make a decision about you. Formal language is appropriate, as in a CV or Cover Letter. This extends to the code as well.
+
 ## Suggestions for further work on this project
 
 - Write tests for the Console View
@@ -39,3 +47,5 @@ It is relatively common not to have interfaces for objects where the intent is f
 - Consider where the vendingMachine should be set up, move it to the location you feel is most appropriate
 
 - Consider the work required to add more items to the vending machine. Does this reveal any places where your code is coupled?
+
+- Could this use the MVC or MVVM patterns? How should it change to follow either of these?
