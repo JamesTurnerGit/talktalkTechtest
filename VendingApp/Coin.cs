@@ -3,15 +3,10 @@ using System.Collections.Generic;
 
 namespace VendingApp
 {
-    public interface ICoin
-    {
-        int Value { get; }
-    }
-
     /// <summary>
     /// coin implemntation designed to be configurable
     /// </summary>
-    public class Coin: ICoin
+    public class Coin
     {
         public int Value { get; private set; }
         public static List<int> ValidCoinValues = new List<int> { 200, 100, 50, 20, 10, 5, 2, 1 };

@@ -1,13 +1,6 @@
 ﻿namespace VendingApp
 {
-    public interface IItem
-    {
-        int Cost { get; }
-        string Name { get; }
-
-    }
-
-    public class Item : IItem
+    public class Item
     {
         public int Cost { get; private set; }
         public string Name { get; private set; }

@@ -14,24 +14,24 @@ namespace VendingApp
         public CoinCalculator coinCalculator = new CoinCalculator();
         public int ActiveMoney { get; private set; }
 
-        public List<IItem> stock = new List<IItem>();
-        public List<IItem> Stock
+        public List<Item> stock = new List<Item>();
+        public List<Item> Stock
         {
             get { return stock; }
             private set { stock = value; }
         }
 
-        public void AddStock(IItem newItem)
+        public void AddStock(Item newItem)
         {
             Stock.Add(newItem);
         }
 
-        public void InsertCoin(ICoin coin)
+        public void InsertCoin(Coin coin)
         {
             ActiveMoney += coin.Value;
         }
 
-        public bool TryPurchase(IItem item)
+        public bool TryPurchase(Item item)
         {
             if (item.Cost > ActiveMoney) { return false; }
             if (!stock.Contains(item)) { return false; }
@@ -39,7 +39,7 @@ namespace VendingApp
             return true;
         }
 
-        public List<ICoin> CoinReturn()
+        public List<Coin> CoinReturn()
         {
             var moneyToReturn = ActiveMoney;
             ActiveMoney = 0;

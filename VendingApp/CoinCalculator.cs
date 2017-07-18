@@ -8,7 +8,7 @@ namespace VendingApp
 {
     interface ICoinCalculator
     {
-        List<ICoin> ToCoins(int totalValue);
+        List<Coin> ToCoins(int totalValue);
     }
 
     /// <summary>
@@ -16,9 +16,9 @@ namespace VendingApp
     /// </summary>
     public class CoinCalculator : ICoinCalculator
     { 
-        public List<ICoin> ToCoins(int totalValue)
+        public List<Coin> ToCoins(int totalValue)
         {
-            var result = new List<ICoin>();
+            var result = new List<Coin>();
 
             foreach (int coinValue in Coin.ValidCoinValues)
             {

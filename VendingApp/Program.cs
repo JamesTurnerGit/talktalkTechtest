@@ -56,7 +56,7 @@ namespace VendingApp
             }
         }
 
-        public static void ToStringCoins(List<ICoin> coins)
+        public static void ToStringCoins(List<Coin> coins)
         {
             if(coins.Count == 0)
             {
@@ -64,7 +64,7 @@ namespace VendingApp
                 return;
             }
             Console.WriteLine("the machine spits out the following:");
-            foreach(ICoin coin in coins)
+            foreach(Coin coin in coins)
             {
                 Console.WriteLine(coin.ToString());
             }
