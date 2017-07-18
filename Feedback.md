@@ -4,6 +4,8 @@
 Separation of logic and view. Excellent, above what I'd expect of a junior developer.
 
 ## Suggestions for improvement
+DRY - There's a subtle violation of DRY here - made more obvious by the fact the water bottle is mis-priced on the menu. The menu information can be derived from the object, and this makes it clear that the display menu is actually coupled to the vending machine it is displaying a menu for. The implementation I'm submitting for you will display poorly for prices over £1; if I needed this to work better, I'd look for other solutions on the internet. 
+
 Summary blocks can be used to describe classes and methods. These will appear in Intellisense, which makes it easier for other developers to use APIs you create. Comments at the top of code files are not common in C#/.Net for this reason.
 
 A using directive will make the tests more familiar for experienced .Net developers, rather than referring to the main namespace every time it is used

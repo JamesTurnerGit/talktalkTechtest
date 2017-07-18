@@ -22,7 +22,7 @@ namespace VendingApp
             vendingMachine.AddStock(crisps);
             vendingMachine.AddStock(water);
 
-            DisplayMenu();
+            DisplayMenu(vendingMachine);
 
             while (true)
             {
@@ -49,7 +49,7 @@ namespace VendingApp
                         break;
                     default:
                         Console.WriteLine("invalid option.");
-                        DisplayMenu();
+                        DisplayMenu(vendingMachine);
                         break;
                 }
 
@@ -71,12 +71,18 @@ namespace VendingApp
             Console.WriteLine("that's it!");
         }
 
-        public static void DisplayMenu()
+        public static void DisplayMenu(VendingMachine vendingMachine)
         {
 
             Console.WriteLine("you see a vending machine, it has 4 points of interaction");
-            Console.WriteLine("1. Buy crisps(40p)");
-            Console.WriteLine("2. Buy water (50p)");
+
+            var crisps = vendingMachine.Stock.First(i => i.Name.Contains("Crisps"));
+            var water = vendingMachine.Stock.First(i => i.Name.Contains("Water"));
+
+            Console.WriteLine("1. Buy {0}", crisps);
+            Console.WriteLine("2. Buy {0}", water);
+
+
             Console.WriteLine("3. Insert a 50p Coin");
             Console.WriteLine("4. Press Coin Return");
             Console.WriteLine("to use it type 1-4 on your keyboard and press return or press Q to quit");
