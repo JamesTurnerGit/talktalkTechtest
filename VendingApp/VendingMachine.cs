@@ -11,7 +11,17 @@ namespace VendingApp
     /// </summary>
     public class VendingMachine
     {
-        public CoinCalculator coinCalculator = new CoinCalculator();
+        private readonly ICoinCalculator _coinCalculator;
+
+        public VendingMachine(ICoinCalculator coinCalculator)
+        {
+            this._coinCalculator = coinCalculator;
+        }
+
+        public VendingMachine() : this(new CoinCalculator())
+        {
+        }
+
         public int ActiveMoney { get; private set; }
 
         public List<Item> stock = new List<Item>();
@@ -43,7 +53,7 @@ namespace VendingApp
         {
             var moneyToReturn = ActiveMoney;
             ActiveMoney = 0;
-            return coinCalculator.ToCoins(moneyToReturn);
+            return _coinCalculator.ToCoins(moneyToReturn);
         }
     }
 }

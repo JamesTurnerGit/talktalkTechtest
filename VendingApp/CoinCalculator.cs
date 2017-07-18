@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VendingApp
 {
-    interface ICoinCalculator
+    public interface ICoinCalculator
     {
         List<Coin> ToCoins(int totalValue);
     }

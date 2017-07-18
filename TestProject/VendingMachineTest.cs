@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using VendingApp;
 
 namespace VendingAppTests
@@ -117,15 +119,32 @@ namespace VendingAppTests
         }
 
         [TestMethod]
-        public void CoinReturnWorks()
+        public void VendingMachineCallsCoinCalculatorWithCorrectRemainingMoney()
         {
-            var vendingMachine = new VendingMachine();
+            var mockCoinCalculator = new Mock<ICoinCalculator>();
+            
+            var vendingMachine = new VendingMachine(mockCoinCalculator.Object);
+
+            vendingMachine.InsertCoin(new Coin(100));
+            vendingMachine.CoinReturn();
+
+            mockCoinCalculator.Verify(m => m.ToCoins(100));
+        }
+
+        [TestMethod]
+        public void CoinReturnReturnsCoinsFromCoinCalculator()
+        {
+            var mockCoinCalculator = new Mock<ICoinCalculator>();
+            var returnedCoins = new List<Coin>();
+            mockCoinCalculator.Setup(m => m.ToCoins(It.IsAny<int>())).Returns(returnedCoins);
+
+            var vendingMachine = new VendingMachine(mockCoinCalculator.Object);
             var mockPoundCoin = new Coin(100);
 
             vendingMachine.InsertCoin(mockPoundCoin);
             var change = vendingMachine.CoinReturn();
 
-            Assert.AreEqual(100, change[0].Value);
+            Assert.AreEqual(returnedCoins, change);
         }
 
         [TestMethod]

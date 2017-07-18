@@ -20,3 +20,5 @@ One of the Vending Machine tests was not complete. I picked this up because I us
 ToString is present on object, and does not need to be in the ICoin interface. You might be interested to look up how you can specify that the base object.ToString() method should be used. https://www.dotnetperls.com/tostring has some more information on ToString, I recommend you read up to the beginning of the discussion of numbers - be warned that CultureInfo and displaying numbers is a big subject, you may wish to steer clear of it for now.
 
 It is relatively common not to have interfaces for objects where the intent is for them to contain information, rather than behaviour. It is my opinion that Coin and Item have this intent.
+
+One of the vending machine tests was looking at behaviour which is the responsibility of the CoinCalculator; This has been mocked and tested with better separation of responsiblity in the tests, and the ICoinCalculator has been injected using "Poor Man's Dependency injection"
